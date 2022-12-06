@@ -6,18 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     name: job1
     steps:
-    - name: Check pwd
-      run: |
-        pwd
-        ls
-        ls $HOME
     - name: start minikube
       id: minikube
       uses: spowelljr/setup-minikube@master
-      continue-on-error: true
-    - name: Check minikube home
-      run: |
-        ls
-        ls $HOME 
-        ls $HOME/.minikube
-        ls $HOME/.minikube/cache
+    - name: kubectl
+      run: kubectl get pods -A
