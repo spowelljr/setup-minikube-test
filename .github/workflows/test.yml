@@ -6,9 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     name: job1
     steps:
+    - name: Check pwd
+      run: |
+        pwd
+        ls
+        ls $HOME
     - name: start minikube
       id: minikube
       uses: spowelljr/setup-minikube@master
-    # now you can run kubectl to see the pods in the cluster
-    - name: kubectl
-      run: kubectl get pods -A
+      continue-on-error: true
+    - name: Check minikube home
+      run: |
+        ls
+        ls $HOME 
+        ls $HOME/.minikube
+        ls $HOME/.minikube/cache
