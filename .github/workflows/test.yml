@@ -8,6 +8,6 @@ jobs:
     steps:
     - name: start minikube
       id: minikube
-      uses: spowelljr/setup-minikube@master
+      uses: spowelljr/setup-minikube@addCaching
     - name: kubectl
       run: kubectl get pods -A
