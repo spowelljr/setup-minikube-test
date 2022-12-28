@@ -10,6 +10,8 @@ jobs:
       run: |
         mkdir cat123
         touch cat123/dog.txt
+        cd cat123
+        pwd
     - name: start minikube
       id: minikube
       uses: spowelljr/setup-minikube@addMount
