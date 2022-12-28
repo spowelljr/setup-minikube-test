@@ -6,8 +6,17 @@ jobs:
     runs-on: ubuntu-latest
     name: job1
     steps:
+    - name: Create file
+      run: |
+        mkdir cat123
+        touch cat123/dog.txt
     - name: start minikube
       id: minikube
-      uses: spowelljr/setup-minikube@addCaching
+      uses: spowelljr/setup-minikube@addMount
+      with:
+        mount-path: /home/runner/cat123:/thing123
     - name: kubectl
       run: kubectl get pods -A
+    - name: Check file
+      run: |
+        minikube ssh -- ls /thing123
