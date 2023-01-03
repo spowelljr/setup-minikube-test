@@ -16,7 +16,7 @@ jobs:
       id: minikube
       uses: spowelljr/setup-minikube@addMount
       with:
-        mount-path: /home/runner/work/setup-minikube-test/setup-minikube-test/cat123:/thing123
+        mount-path: ./cat123:/thing123
     - name: kubectl
       run: kubectl get pods -A
     - name: Check file
