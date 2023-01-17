@@ -14,9 +14,9 @@ jobs:
         pwd
     - name: start minikube
       id: minikube
-      uses: spowelljr/setup-minikube@addMount
+      uses: spowelljr/setup-minikube@master
       with:
-        mount-path: ./cat123:/thing123
+        start-args: '--driver docker --subnet 192.168.200.200'
     - name: kubectl
       run: kubectl get pods -A
     - name: Check file
