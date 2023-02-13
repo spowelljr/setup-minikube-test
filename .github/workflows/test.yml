@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: start minikube
       id: minikube
-      uses: medyagh/setup-minikube@latest
+      uses: medyagh/setup-minikube@v0.0.11
       with:
         start-args: '--driver docker --profile spowell'
     - name: kubectl
