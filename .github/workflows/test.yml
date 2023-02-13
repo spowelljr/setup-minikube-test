@@ -6,19 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     name: job1
     steps:
-    - name: Create file
-      run: |
-        mkdir cat123
-        touch cat123/dog.txt
-        cd cat123
-        pwd
     - name: start minikube
       id: minikube
-      uses: sayboras/setup-minikube@tam/fix-start-args
+      uses: medyagh/setup-minikube@latest
       with:
-        start-args: '--driver docker --subnet 192.168.200.200'
+        start-args: '--driver docker --profile spowell'
     - name: kubectl
       run: kubectl get pods -A
-    - name: Check file
-      run: |
-        minikube ssh -- ls /thing123
