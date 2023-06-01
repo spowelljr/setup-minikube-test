@@ -9,6 +9,7 @@ jobs:
     - name: start minikube
       id: minikube
       uses: medyagh/setup-minikube@v0.0.11
+      with:
         start-args: '--alsologtostderr'
     - name: kubectl
       run: kubectl get pods -A
