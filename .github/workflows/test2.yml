@@ -16,6 +16,6 @@ jobs:
         curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
         chmod +x ./minikube-darwin-amd64
         ./minikube-darwin-amd64 ssh -- sudo systemctl status cri-docker.service
-        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.service
+        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.service --no-pager
         ./minikube-darwin-amd64 ssh -- sudo systemctl status cri-docker.socket
-        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.socket
+        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.socket --no-pager
