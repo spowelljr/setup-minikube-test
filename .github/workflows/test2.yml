@@ -1,0 +1,14 @@
+name: CI
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: macos-12
+    name: job1
+    steps:
+    - name: start minikube
+      id: minikube
+      uses: medyagh/setup-minikube@v0.0.11
+        start-args: '--alsologtostderr'
+    - name: kubectl
+      run: kubectl get pods -A
