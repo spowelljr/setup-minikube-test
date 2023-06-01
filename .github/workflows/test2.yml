@@ -7,9 +7,15 @@ jobs:
     name: job1
     steps:
     - name: start minikube
+      continue-on-error: true
       id: minikube
       uses: medyagh/setup-minikube@v0.0.11
       with:
         start-args: '--alsologtostderr'
-    - name: kubectl
-      run: kubectl get pods -A
+    - run: |
+        curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
+        chmod +x ./minikube-darwin-amd64
+        ./minikube-darwin-amd64 ssh -- sudo systemctl status cri-docker.service
+        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.service
+        ./minikube-darwin-amd64 ssh -- sudo systemctl status cri-docker.socket
+        ./minikube-darwin-amd64 ssh -- sudo journalctl -u cri-docker.socket
